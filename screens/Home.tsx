@@ -1,10 +1,17 @@
-import { View, Text} from 'react-native';
-import * as React from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
+import { View, Text, SafeAreaView} from 'react-native';
+import React from 'react'
+import HeaderTabs from '../components/HeaderTabs';
+import SearchBar from '../components/SearchBar';
 
 export default function Home() {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  )
-}
+    <SafeAreaView style={{ backgroundColor: '#eee', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', padding: 15 }}>
+        <HeaderTabs/>
+        <SearchBar />
+      </View>
+    </SafeAreaView>
+  );
+} 
