@@ -1,0 +1,6 @@
+{
+  "java.project.excludePaths": [
+    "node_modules"
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
