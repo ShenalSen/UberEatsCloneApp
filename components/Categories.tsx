@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { View, Text, Image, ScrollView } from 'react-native';
 import React from 'react';
 
