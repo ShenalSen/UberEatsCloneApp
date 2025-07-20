@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import { Text, View } from 'react-native';
 import React from 'react'
@@ -11,12 +10,12 @@ export default function SearchBar() {
   return (
     <View style={{ marginTop: 15, flexDirection: 'row' }}>
       <GooglePlacesAutocomplete
-        placeholder="Search"
+        placeholder="Search" 
         onPress={(data, details = null) => {
-          // handle selection
+          console.log(data, details); // handle selection
         }}
         query={{
-          key: 'GOOGLE_API_KEY',
+          key: 'AIzaSyDSFORNhslRGbwkw9RYax-2sRlTDj5cHkY', 
           language: 'en',
         }}
         fetchDetails={true}
@@ -36,7 +35,7 @@ export default function SearchBar() {
             marginLeft: 10,
           },
         }}
-        textInputProps={{}}
+        textInputProps={{ placeholderTextColor: '#a4a4a4ff' }}
         predefinedPlaces={[]}
 
         renderLeftButton={() => (
