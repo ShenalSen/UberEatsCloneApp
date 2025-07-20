@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const localRestaurents = [
+export const localRestaurents = [
   {
     name: 'Farmhouse Kitchen Thai Cuisine',
     image_url:
@@ -68,10 +68,25 @@ const localRestaurents = [
   },
 ];
 
-export default function RestaurantItem() {
+interface Restaurant {
+  name: string;
+  image_url: string;
+  categories: string[];
+  price: string;
+  reviews: number;
+  rating: number;
+}
+
+interface RestaurantItemsProps {
+  restaurentData: Restaurant[];
+}
+
+
+
+export default function RestaurantItems(props: RestaurantItemsProps) {
   return (
     <TouchableOpacity activeOpacity={1} style={{ marginBottom: 30 }}>
-      {localRestaurents.map((restaurant, index) => (
+      {props.restaurentData.map((restaurant: Restaurant, index: number) => (
         <View
           key={index}
           style={{
@@ -123,12 +138,12 @@ const RestaurantInfo: React.FC<RestaurantInfoProps> = ({ name, rating }) => (
     </View>
     <View
       style={{
-        backgroundColor: 'gold',
+        backgroundColor: '#eee',
         height: 30,
         width: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 15,
+        borderRadius: 50,
       }}
     >
       <Text>{rating}</Text>
