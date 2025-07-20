@@ -15,7 +15,7 @@ export default function SearchBar() {
           console.log(data, details); // handle selection
         }}
         query={{
-          key: 'AIzaSyDSFORNhslRGbwkw9RYax-2sRlTDj5cHkY', 
+          key: 'AIzaSyDSFORNhslRGbwkw9fakeOneRYax-2sRlTDj5cHkY', 
           language: 'en',
         }}
         fetchDetails={true}
