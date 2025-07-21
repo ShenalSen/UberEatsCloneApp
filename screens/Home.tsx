@@ -30,6 +30,12 @@ export default function Home() {
       .catch((err) => console.error(err));
   };
 
+  /* 
+  React.useEffect(() => {
+    getRestaurantFromRapid();
+  }, []);
+  */
+
   return (
     <SafeAreaView style={{ backgroundColor: '#eee', flex: 1 }}>
       <View style={{ backgroundColor: 'white', padding: 15 }}>
