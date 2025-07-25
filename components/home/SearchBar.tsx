@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import { Text, View } from 'react-native';
 import React from 'react'
@@ -12,7 +13,8 @@ export default function SearchBar() {
       <GooglePlacesAutocomplete
         placeholder="Search" 
         onPress={(data, details = null) => {
-          console.log(data, details); // handle selection
+          console.log(data.description);
+          const city = data.description.split(',')[0];
         }}
         query={{
           key: 'AIzaSyDSFORNhslRGbwkw9fakeOneRYax-2sRlTDj5cHkY', 

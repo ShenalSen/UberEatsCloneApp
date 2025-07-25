@@ -2,10 +2,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import { View, Text, SafeAreaView, ScrollView } from 'react-native';
 import React from 'react';
-import HeaderTabs from '../components/HeaderTabs';
-import SearchBar from '../components/SearchBar';
-import Categories from '../components/Categories';
-import RestaurantItems, { localRestaurents } from '../components/RestaurantItems';
+import HeaderTabs from '../components/home/HeaderTabs';
+import SearchBar from '../components/home/SearchBar';
+import Categories from '../components/home/Categories';
+import RestaurantItems, { localRestaurents } from '../components/home/RestaurantItems';
 
 const X_RAPID_API_KEY = "08eeacb770mshe6bedced0d12369p16f6d5jsn070c52113943";
 // App : default-application_10838207
