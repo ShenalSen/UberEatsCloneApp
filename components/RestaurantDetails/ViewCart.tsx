@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { View, Text, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { View, Text, TouchableOpacity, Modal } from 'react-native';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 type ViewCartProps = {
@@ -13,6 +13,7 @@ export default function ViewCart({
   navigation,
   restaurentName,
 }: ViewCartProps) {
+  const [modalVisible, setModalVisible] = useState(false);
   const items = useSelector(
     (state: any) => state.cartReducer.selectedItems.items,
   );
@@ -28,8 +29,41 @@ export default function ViewCart({
 
   console.log('Total:', totalUSD);
 
+  const checkoutModalContent = () => {
+    return (
+      <View style={{
+        flex: 1,
+        marginTop: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <View
+          style={{
+            backgroundColor: 'black',
+            padding: 10,
+            borderRadius: 30,
+            width: 150,
+            alignItems: 'center',
+          }}
+        >
+          <TouchableOpacity onPress={() => setModalVisible(false)}>
+            <Text style={{ color: 'white' }}>Checkout</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <>
+      <Modal
+        animationType="slide"
+        visible={modalVisible}
+        transparent={true}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        {checkoutModalContent()}
+      </Modal>
       {total ? (
         <View
           style={{
@@ -61,22 +95,27 @@ export default function ViewCart({
                 width: 300,
                 position: 'relative',
               }}
+              onPress={() => setModalVisible(true)}
             >
               <Text
                 style={{
                   color: 'white',
                   fontSize: 20,
                   marginRight: 30,
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
                 }}
               >
                 View Cart
               </Text>
-              <Text style={{
-                color: 'white',
-                fontSize: 20,
-                fontWeight: 'bold'
-              }}>{totalUSD}</Text>
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                }}
+              >
+                {totalUSD}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
