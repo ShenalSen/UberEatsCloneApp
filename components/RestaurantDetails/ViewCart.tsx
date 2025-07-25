@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 type ViewCartProps = {
   navigation: any;
@@ -12,6 +13,19 @@ export default function ViewCart({
   navigation,
   restaurentName,
 }: ViewCartProps) {
+  const items = useSelector((state: any) => state.cartReducer.selectedItems.items);
+
+  const total = items
+  .map((item: any) => Number(item.price.replace('$', '')))
+  .reduce((prev: number, curr: number) => prev + curr, 0);
+
+  const totalUSD = total.toLocaleString('en', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  console.log('Total:', totalUSD);
+
   return (
     <View style={{ 
         flex: 1,  

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import React from 'react';
@@ -80,12 +79,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function MenuItem() {
+export default function MenuItem(restaurantName: any) {
   const dispatch = useDispatch();
-  const selectItem = (item: any) =>
+  const selectItem = (item: any, checkboxValue: boolean) =>
     dispatch({
       type: 'ADD_TO_CART',
-      payload: { item }
+      payload: { ...item, restaurantName: restaurantName, checkboxValue: checkboxValue },
     });
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -95,6 +94,7 @@ export default function MenuItem() {
             <BouncyCheckbox
               iconStyle={{ borderColor: 'lightgray', borderRadius: 0 }}
               fillColor="green"
+              onPress={(checkboxValue) => selectItem(food, checkboxValue)} 
             />
             <FoodInfo food={food} />
             <FoodImage food={food} />

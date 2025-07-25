@@ -26,11 +26,22 @@ const cartReducer = (state: CartState = defaultState, action: CartAction): CartS
   switch (action.type) {
     case 'ADD_TO_CART': {
       let newState = { ...state };
+      if(action.payload.checkboxValue) {
+        console.log("Adding item to cart");
+        
       newState.selectedItems = {
         items: [...state.selectedItems.items, action.payload],
         restaurantName: action.payload.restaurantName,
       };
-      console.log('New state after ADD_TO_CART:', newState);
+      
+      } else {
+        console.log("Removing item from cart");
+        newState.selectedItems = {
+          items: newState.selectedItems.items.filter((item) => item.title !== action.payload.title),
+          restaurantName: action.payload.restaurantName,
+        };
+      }
+      console.log("Updated cart state:", newState);
       return newState;
     }
     default:
