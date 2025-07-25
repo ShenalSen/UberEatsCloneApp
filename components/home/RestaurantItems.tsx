@@ -79,7 +79,7 @@ interface Restaurant {
 
 interface RestaurantItemsProps {
   restaurentData: Restaurant[];
-  navigation: any; // You can use a more specific type if needed
+  navigation: any; 
 }
 
 export default function RestaurantItems(props: RestaurantItemsProps) {
@@ -87,7 +87,7 @@ export default function RestaurantItems(props: RestaurantItemsProps) {
     <>
       {props.restaurentData.map((restaurant: Restaurant) => (
         <TouchableOpacity
-          key={restaurant.name} // <-- Move key here!
+          key={restaurant.name} 
           activeOpacity={1}
           style={{ marginBottom: 30 }}
           onPress={() => props.navigation.navigate('RestaurantDetails', {
