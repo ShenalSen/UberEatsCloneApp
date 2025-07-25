@@ -87,8 +87,7 @@ export default function MenuItem() {
           <View style={styles.menuItemStyle}>
             <BouncyCheckbox
               iconStyle={{ borderColor: 'lightgray', borderRadius: 0 }}
-              fillColor="green"
-              isChecked={false}              
+              fillColor="green"             
             />
             <FoodInfo food={food} />
             <FoodImage food={food} />
