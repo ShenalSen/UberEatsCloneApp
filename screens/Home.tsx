@@ -17,7 +17,7 @@ export default function Home() {
   const [restaurantData, setRestaurantData] = React.useState(localRestaurents);
 
   const getRestaurantFromRapid = () => {
-    const rapidurl = 'https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchRestaurants?locationId=304554';
+    const rapidurl = '##https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchRestaurants?locationId=hashcoded';
     const apiOptions = {
       headers: {
         Authorization: `Bearer ${X_RAPID_API_KEY}`,
