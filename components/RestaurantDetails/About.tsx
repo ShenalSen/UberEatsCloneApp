@@ -11,7 +11,7 @@ const description = 'Thai • Comfort Food • $$ • 🎫 • 4⭐ (2913+)';
 
 export default function About() {
   return (
-    <View style={{ backgroundColor: 'white', flex: 1 }}>
+    <View style={{ backgroundColor: 'white'}}>
       <RestaurantImage image={image} />
       <RestaurantTitle title={title} />
       <RestaurantDescription description={description} />
