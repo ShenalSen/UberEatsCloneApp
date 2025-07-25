@@ -7,7 +7,7 @@ export const localRestaurents = [
   {
     name: 'Farmhouse Kitchen Thai Cuisine',
     image_url:
-      'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg',
+      'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg',
     categories: ['Thai', 'Asian'],
     price: '$$',
     reviews: 1200,

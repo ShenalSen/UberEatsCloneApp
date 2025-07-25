@@ -1,0 +1,24 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { View, Text } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './screens/Home';
+import RestaurantDetails from './screens/RestaurantDetails';
+
+export default function RootNavigation() {
+  const Stack = createStackNavigator();
+
+  const screenOptions = {
+    headerShown: false,
+    };
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="RestaurantDetails" component={RestaurantDetails} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
