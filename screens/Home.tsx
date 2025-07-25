@@ -15,7 +15,7 @@ const X_RAPID_API_KEY = "#08ee#acb770mshe6bedced0#d123696d5jsn070c52113943#hashc
 // Request URL : rapidapi.com
 
 
-export default function Home() {
+export default function Home({ navigation }: { navigation: any }) {
   const [restaurantData, setRestaurantData] = React.useState(localRestaurents);
 
   const getRestaurantFromRapid = () => {
@@ -46,7 +46,7 @@ export default function Home() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestaurantItems restaurentData={restaurantData} />
+        <RestaurantItems restaurentData={restaurantData} navigation ={navigation} />
       </ScrollView>
       <Divider width={1} />
       <BottomTabs/>

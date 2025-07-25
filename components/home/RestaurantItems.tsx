@@ -79,28 +79,39 @@ interface Restaurant {
 
 interface RestaurantItemsProps {
   restaurentData: Restaurant[];
+  navigation: any; // You can use a more specific type if needed
 }
-
-
 
 export default function RestaurantItems(props: RestaurantItemsProps) {
   return (
-    <TouchableOpacity activeOpacity={1} style={{ marginBottom: 30 }}>
-      {props.restaurentData.map((restaurant: Restaurant, index: number) => (
-        <View
-          key={index}
-          style={{
-            marginTop: 10,
-            backgroundColor: 'white',
-            padding: 15,
-          }}>
-          <RestaurantImage image={restaurant.image_url} />
-          <RestaurantInfo 
-            name={restaurant.name}
-            rating={restaurant.rating} />
-        </View>
+    <>
+      {props.restaurentData.map((restaurant: Restaurant) => (
+        <TouchableOpacity
+          key={restaurant.name} // <-- Move key here!
+          activeOpacity={1}
+          style={{ marginBottom: 30 }}
+          onPress={() => props.navigation.navigate('RestaurantDetails', {
+            name: restaurant.name,
+            image: restaurant.image_url,
+            price: restaurant.price,
+            reviews: restaurant.reviews,
+            rating: restaurant.rating,
+            categories: restaurant.categories.join(', ')
+          })}
+        >
+          <View
+            style={{
+              marginTop: 10,
+              backgroundColor: 'white',
+              padding: 15,
+            }}
+          >
+            <RestaurantImage image={restaurant.image_url} />
+            <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
+          </View>
+        </TouchableOpacity>
       ))}
-    </TouchableOpacity>
+    </>
   );
 }
 
@@ -109,10 +120,7 @@ interface RestaurantImageProps {
 }
 const RestaurantImage: React.FC<RestaurantImageProps> = ({ image }) => (
   <View style={{ position: 'relative' }}>
-    <Image
-      source={{ uri: image }}
-      style={{ width: '100%', height: 180 }}
-    />
+    <Image source={{ uri: image }} style={{ width: '100%', height: 180 }} />
     <TouchableOpacity style={{ position: 'absolute', right: 20, top: 20 }}>
       <MaterialCommunityIcons name="heart-outline" size={25} color="white" />
     </TouchableOpacity>
