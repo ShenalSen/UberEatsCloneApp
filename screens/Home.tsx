@@ -6,6 +6,8 @@ import HeaderTabs from '../components/home/HeaderTabs';
 import SearchBar from '../components/home/SearchBar';
 import Categories from '../components/home/Categories';
 import RestaurantItems, { localRestaurents } from '../components/home/RestaurantItems';
+import { Divider } from 'react-native-elements';
+import BottomTabs from '../components/home/BottomTabs';
 
 const X_RAPID_API_KEY = "#08ee#acb770mshe6bedced0#d123696d5jsn070c52113943#hashcoded";
 // App : default-application_10838207
@@ -46,6 +48,8 @@ export default function Home() {
         <Categories />
         <RestaurantItems restaurentData={restaurantData} />
       </ScrollView>
+      <Divider width={1} />
+      <BottomTabs/>
     </SafeAreaView>
   );
 }
