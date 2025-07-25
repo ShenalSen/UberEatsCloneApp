@@ -7,7 +7,7 @@ import SearchBar from '../components/home/SearchBar';
 import Categories from '../components/home/Categories';
 import RestaurantItems, { localRestaurents } from '../components/home/RestaurantItems';
 
-const X_RAPID_API_KEY = "08eeacb770mshe6bedced0d12369p16f6d5jsn070c52113943";
+const X_RAPID_API_KEY = "#08ee#acb770mshe6bedced0#d123696d5jsn070c52113943#hashcoded";
 // App : default-application_10838207
 // X-RapidAPI-Key : 08eeacb770mshe6bedced0d12369p16f6d5jsn070c52113943
 // Request URL : rapidapi.com
