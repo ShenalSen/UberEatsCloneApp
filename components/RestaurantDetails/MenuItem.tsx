@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import React from 'react';
 import { Divider } from 'react-native-elements';
@@ -88,7 +87,7 @@ export default function MenuItem() {
             <FoodInfo food={food} />
             <FoodImage food={food} />
           </View>
-          <Divider width={0.5} orientation="vertical" />
+          <Divider width={0.5} orientation="vertical" style={{marginHorizontal: 20}} />
         </View>
         
       ))}

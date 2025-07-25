@@ -1,49 +1,59 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { View, Text,Image } from 'react-native'
+
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 
-const image = 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg';
+type AboutProps = {
+  route: {
+    params: {
+      name: string;
+      image: string;
+      price: string;
+      reviews: number;
+      rating: number;
+      categories: string;
+    }
+  }
+};
 
-const title = 'Farmhouse Kitchen Thai Cuisine';
+export default function About({ route }: AboutProps) {
+  const { name, image, price, reviews, rating, categories } = route.params;
 
-const description = 'Thai • Comfort Food • $$ • 🎫 • 4⭐ (2913+)';
+  const description = `${categories} • ${price} • 🎫 • ${rating}⭐ (${reviews}+)`;
 
-export default function About() {
   return (
-    <View style={{ backgroundColor: 'white'}}>
+    <View style={{ backgroundColor: 'white' }}>
       <RestaurantImage image={image} />
-      <RestaurantTitle title={title} />
+      <RestaurantTitle title={name} />
       <RestaurantDescription description={description} />
     </View>
-  )
+  );
 }
 
 type RestaurantImageProps = {
-    image: string;
-    
+  image: string;
 };
 
 const RestaurantImage = (props: RestaurantImageProps) => (
-    <Image source={{uri: props.image}} style={{ width: "100%", height: 180 }} />
-)
+  <Image source={{ uri: props.image }} style={{ width: "100%", height: 180 }} />
+);
 
 type RestaurantTitleProps = {
-    title: string;
+  title: string;
 };
 
 const RestaurantTitle = (props: RestaurantTitleProps) => (
-    <Text style={{ fontSize: 29, fontWeight: "600", marginTop: 10, marginHorizontal: 15 }}>
-      {props.title}
-    </Text>
-)
+  <Text style={{ fontSize: 29, fontWeight: "600", marginTop: 10, marginHorizontal: 15 }}>
+    {props.title}
+  </Text>
+);
 
 type RestaurantDescriptionProps = {
-    description: string;
+  description: string;
 };
 
 const RestaurantDescription = (props: RestaurantDescriptionProps) => (
-    <Text style={{marginTop: 10, marginHorizontal: 15, fontWeight: "600", fontSize: 15.5}}>
-      {props.description}
-    </Text>
-)
+  <Text style={{ marginTop: 10, marginHorizontal: 15, fontWeight: "600", fontSize: 15.5 }}>
+    {props.description}
+  </Text>
+);
