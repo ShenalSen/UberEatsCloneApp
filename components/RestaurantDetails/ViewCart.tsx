@@ -16,9 +16,10 @@ export default function ViewCart({
     <View style={{ 
         flex: 1,  
         alignItems: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
         position: 'absolute', 
-        bottom: 130,
+        bottom: 10,
         zIndex: 999
         }}>
       <View
@@ -45,7 +46,7 @@ export default function ViewCart({
               fontSize: 20,
             }}
           >
-            VIEW CART
+            View Cart
           </Text>
         </TouchableOpacity>
       </View>
