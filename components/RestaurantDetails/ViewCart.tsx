@@ -13,11 +13,13 @@ export default function ViewCart({
   navigation,
   restaurentName,
 }: ViewCartProps) {
-  const items = useSelector((state: any) => state.cartReducer.selectedItems.items);
+  const items = useSelector(
+    (state: any) => state.cartReducer.selectedItems.items,
+  );
 
   const total = items
-  .map((item: any) => Number(item.price.replace('$', '')))
-  .reduce((prev: number, curr: number) => prev + curr, 0);
+    .map((item: any) => Number(item.price.replace('$', '')))
+    .reduce((prev: number, curr: number) => prev + curr, 0);
 
   const totalUSD = total.toLocaleString('en', {
     style: 'currency',
@@ -27,43 +29,60 @@ export default function ViewCart({
   console.log('Total:', totalUSD);
 
   return (
-    <View style={{ 
-        flex: 1,  
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        position: 'absolute', 
-        bottom: 10,
-        zIndex: 999
-        }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          width: '100%',
-        }}
-      >
-        <TouchableOpacity
+    <>
+      {total ? (
+        <View
           style={{
-            margin: 20,
-            padding: 13,
-            backgroundColor: 'black',
+            flex: 1,
             alignItems: 'center',
-            borderRadius: 30,
-            width: 300,
-            position: 'relative',
+            justifyContent: 'center',
+            flexDirection: 'row',
+            position: 'absolute',
+            bottom: 10,
+            zIndex: 999,
           }}
         >
-          <Text
+          <View
             style={{
-              color: 'white',
-              fontSize: 20,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              width: '100%',
             }}
           >
-            View Cart
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+            <TouchableOpacity
+              style={{
+                margin: 20,
+                padding: 15,
+                backgroundColor: 'black',
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+                borderRadius: 30,
+                width: 300,
+                position: 'relative',
+              }}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 20,
+                  marginRight: 30,
+                  fontWeight: 'bold'
+                }}
+              >
+                View Cart
+              </Text>
+              <Text style={{
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold'
+              }}>{totalUSD}</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
